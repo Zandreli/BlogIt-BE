@@ -1,6 +1,7 @@
     import express from 'express';
     import dotenv from 'dotenv';
     import cors from 'cors';
+    import cookieParser from 'cookie-parser';
     import authRoutes from './routes/authRoutes';
     import blogRoutes from './routes/blogRoutes';
     import userRoutes from './routes/userRoutes';
@@ -11,9 +12,10 @@
     const app = express();
     app.use("/api", uploadRoutes)
     app.use(express.json());
+    app.use(cookieParser());
     app.use(cors({
         origin: "http://localhost:5173",
-        credentials: false,
+        credentials: true,
     }));
 
     app.use("/api/auth", authRoutes);

@@ -14,14 +14,12 @@ interface JwtPayload {
       }
 
 export const authenticate = (req: Request, res: Response, next: NextFunction): void => {
-    const authHeader = req.headers.authorization;
+    const token = req.cookies.token;
 
-    if (!authHeader) {
+    if (!token) {
         res.status(401).json({message: "No token provided, Please login again"});
         return;
     }
-
-    const token = authHeader.split(" ")[1];
 
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET as string) as JwtPayload;
