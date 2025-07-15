@@ -15,7 +15,6 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
     origin: "*",
-
     //     "http://localhost:5173",
     //     "https://blog-it-fe-42k8.vercel.app"
     // ],
