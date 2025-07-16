@@ -13,7 +13,7 @@ const router = Router();
 router.get("/", getAllBlogs);
 router.get("/:blogId", getBlogById);
 
-router.post("/", authenticate , createBlog);
+router.post("/blogs", authenticate , createBlog);
 router.patch("/:blogId", authenticate, updateBlog);
 router.delete("/:blogId", authenticate, deleteBlog);
 
