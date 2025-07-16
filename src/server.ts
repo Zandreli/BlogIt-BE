@@ -14,7 +14,11 @@ app.use("/api", uploadRoutes)
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: "https://blog-it-fe-42k8.vercel.app",
+    origin:
+    [
+        "https://blog-it-fe-42k8.vercel.app",
+        "http://localhost:5173"
+    ],
     credentials: true,
 }));
 
